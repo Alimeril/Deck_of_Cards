@@ -1,7 +1,10 @@
 import arcade
 import random
 
-class card(arcade.Sprite):
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 700
+
+class Card(arcade.Sprite):
     def __init__(self,suit,value,scale,side):
         self.suit = suit
         self.value = value
@@ -15,6 +18,7 @@ class card(arcade.Sprite):
             super().__init__(self.front_file,self.scale)
         elif self.side == "back":
             super().__init__(self.back_file,self.scale)
+
     def flip(self):
         if self.side == "front":
             self.side = "back"
@@ -22,3 +26,27 @@ class card(arcade.Sprite):
         elif self.side == "back":
             self.side = "front"
             super().__init__(self.front_file,self.scale)
+
+class Deck(arcade.Sprite):
+    def __init__(self, name,scale):
+        self.center_x = 100
+        self.center_y = 100
+        self.name = name
+        self.cards_in_deck = []
+        super().__init__("Cards/back.png",self.scale)
+    
+    def card_in(self,card: Card, card_list: arcade.SpriteList):
+        self.cards_in_deck.append(card)
+        card.in_deck = True
+        card_list.remove(card)
+    
+    def card_out(self,card: Card, card_list: arcade.SpriteList):
+        self.cards_in_deck.remove(card)
+        card.in_deck = False
+        card.order = 1
+        for c in card_list:
+            c.order += 1
+        card_list.append(card)
+        card.center_x = 200
+        card.center_y = 100
+        
