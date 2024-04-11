@@ -7,6 +7,7 @@ SCREEN_HEIGHT = 700
 DECK_CENTER_X = 100
 DECK_CENTER_Y = 100
 
+CARD_SCALE = 0.5
 DEAL_POS_X = 100
 DEAL_POS_Y = 100
 
@@ -69,3 +70,9 @@ class Deck(arcade.Sprite):
             self.cards_in_deck.remove(card)
         self.cards_in_deck = temp_list
         del temp_list
+
+    def reset(self,card_list: arcade.SpriteList):
+        for card in card_list:
+            self.cards_in_deck.append(card)
+            card_list.remove(card)
+        self.shuffle()
