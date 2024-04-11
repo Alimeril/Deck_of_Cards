@@ -1,8 +1,14 @@
-import arcade
+import arcade # need to be installed: pip install arcade (or: pip3 install arcade)
 import random
 
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 700
+
+DECK_CENTER_X = 100
+DECK_CENTER_Y = 100
+
+DEAL_POS_X = 100
+DEAL_POS_Y = 100
 
 class Card(arcade.Sprite):
     def __init__(self,suit,value,scale,side):
@@ -29,8 +35,8 @@ class Card(arcade.Sprite):
 
 class Deck(arcade.Sprite):
     def __init__(self, name,scale):
-        self.center_x = 100
-        self.center_y = 100
+        self.center_x = DECK_CENTER_X
+        self.center_y = DECK_CENTER_Y
         self.name = name
         self.cards_in_deck = []
         super().__init__("Cards/back.png",self.scale)
@@ -47,6 +53,19 @@ class Deck(arcade.Sprite):
         for c in card_list:
             c.order += 1
         card_list.append(card)
-        card.center_x = 200
-        card.center_y = 100
-        
+        card.side = "front"
+        card.center_x = DEAL_POS_X
+        card.center_y = DEAL_POS_Y
+   
+    def deal(self):
+        self.card_out(self.cards_in_deck[len(self.cards_in_deck)-1])
+
+    def shuffle(self):
+        temp_list = []
+        while len(self.cards_in_deck) > 0:
+            index = random.randrange(len(self.cards_in_deck))
+            card = self.cards_in_deck[index]
+            temp_list.append(card)
+            self.cards_in_deck.remove(card)
+        self.cards_in_deck = temp_list
+        del temp_list
