@@ -231,12 +231,12 @@ class MyGame(arcade.Window):
     
     def help_page(self):
         arcade.draw_rectangle_filled(SCREEN_WIDTH/2,SCREEN_HEIGHT/2,600,400,arcade.color_from_hex_string("#99ab6cf5"))
-        arcade.draw_text("-Left click on the deck to draw a card.",SCREEN_WIDTH/2-300,SCREEN_HEIGHT/2+155,arcade.color_from_hex_string("#BF201f21"),font_size=25,width=600,align="center",font_name="Brush Script MT")
-        arcade.draw_text("-Face-up/down Deal button: Toggle between face-up, face-down deal.",SCREEN_WIDTH/2-300,SCREEN_HEIGHT/2+105,arcade.color_from_hex_string("#BF201f21"),font_size=25,width=600,align="center",font_name="Brush Script MT")
-        arcade.draw_text("-Right click on a card to flip.",SCREEN_WIDTH/2-300,SCREEN_HEIGHT/2+15,arcade.color_from_hex_string("#BF201f21"),font_size=25,width=600,align="center",font_name="Brush Script MT")
-        arcade.draw_text("-Drag cards to move across the mat.",SCREEN_WIDTH/2-300,SCREEN_HEIGHT/2-35,arcade.color_from_hex_string("#BF201f21"),font_size=25,width=600,align="center",font_name="Brush Script MT")
-        arcade.draw_text("-Reset button: Collects the cards into the deck and sorts the deck in order.",SCREEN_WIDTH/2-300,SCREEN_HEIGHT/2-85,arcade.color_from_hex_string("#BF201f21"),font_size=25,width=600,align="center",font_name="Brush Script MT")
-        arcade.draw_text("-Shuffle button: Shuffles the deck.",SCREEN_WIDTH/2-300,SCREEN_HEIGHT/2-175,arcade.color_from_hex_string("#BF201f21"),font_size=25,width=600,align="center",font_name="Brush Script MT")
+        arcade.draw_text("-Left click on the deck to draw a card.",SCREEN_WIDTH/2-300,SCREEN_HEIGHT/2+155,arcade.color_from_hex_string("#BF201f21"),font_size=25,width=600,align="center",font_name="Times New Roman",italic = True)
+        arcade.draw_text("-Face-up/down Deal button: Toggle between face-up, face-down deal.",SCREEN_WIDTH/2-300,SCREEN_HEIGHT/2+105,arcade.color_from_hex_string("#BF201f21"),font_size=25,width=600,align="center",font_name="Times New Roman",italic = True)
+        arcade.draw_text("-Right click on a card to flip.",SCREEN_WIDTH/2-300,SCREEN_HEIGHT/2+15,arcade.color_from_hex_string("#BF201f21"),font_size=25,width=600,align="center",font_name="Times New Roman",italic = True)
+        arcade.draw_text("-Drag cards to move across the mat.",SCREEN_WIDTH/2-300,SCREEN_HEIGHT/2-35,arcade.color_from_hex_string("#BF201f21"),font_size=25,width=600,align="center",font_name="Times New Roman",italic = True)
+        arcade.draw_text("-Reset button: Collects the cards into the deck and sorts the deck in order.",SCREEN_WIDTH/2-300,SCREEN_HEIGHT/2-85,arcade.color_from_hex_string("#BF201f21"),font_size=25,width=600,align="center",font_name="Times New Roman",italic = True)
+        arcade.draw_text("-Shuffle button: Shuffles the deck.",SCREEN_WIDTH/2-300,SCREEN_HEIGHT/2-175,arcade.color_from_hex_string("#BF201f21"),font_size=25,width=600,align="center",font_name="Times New Roman",italic = True)
 
     def on_draw(self):
         # Clears the screen
